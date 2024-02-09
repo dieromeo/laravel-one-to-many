@@ -3,8 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
-class StoreTypeRequest extends FormRequest
+class UpdateTypeRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,11 +23,15 @@ class StoreTypeRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'required|min:3|string',
+            'title' => [
+                'required',
+                'min:3',
+                'string',
+                Rule::unique('types')->ignore($this->type->id),
+            ],
             'slug' => 'nullable'
         ];
     }
-
 
     public function messages()
     {
