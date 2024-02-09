@@ -26,7 +26,7 @@
 <body>
     <div id="app">
 
-        <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-2 shadow">
+        <header class="navbar navbar-light sticky-top bg-light flex-md-nowrap p-2 shadow">
             <div class="row justify-content-between">
                 <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="/">BoolFolio</a>
                 <button class="navbar-toggler position-absolute d-md-none collapsed" type="button"
@@ -54,16 +54,24 @@
                 <!-- Definire solo parte del menu di navigazione inizialmente per poi
         aggiungere i link necessari giorno per giorno
         -->
-                <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-dark navbar-dark sidebar collapse">
+                <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light navbar-light sidebar collapse p-0">
                     <div class="position-sticky pt-3">
                         <ul class="nav flex-column">
+                            <li class="nav-item w-100">
+                                <a class="nav-link text-dark {{ Route::currentRouteName() == 'dashboard' ? 'bg-secondary' : '' }}"
+                                    href="{{ route('admin.project.index') }}"> Progetti </a>
+                            </li>
                             <li class="nav-item">
-                                <a class="nav-link text-white {{ Route::currentRouteName() == 'dashboard' ? 'bg-secondary' : '' }}"
-                                    href="{{ route('admin.project.index') }}">
-                                    <i class="fa-solid fa-tachometer-alt fa-lg fa-fw"></i> Progetti
-                                </a>
-                                <a class="nav-link text-white {{ Route::currentRouteName() == 'dashboard' ? 'bg-secondary' : '' }}"
+                                <a class="nav-link text-dark {{ Route::currentRouteName() == 'dashboard' ? 'bg-secondary' : '' }}"
                                     href="{{ route('admin.project.create') }}"> Create Project </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark {{ Route::currentRouteName() == 'dashboard' ? 'bg-secondary' : '' }}"
+                                    href="{{ route('admin.types.index') }}"> Tipi di progetto </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark {{ Route::currentRouteName() == 'dashboard' ? 'bg-secondary' : '' }}"
+                                    href="{{ route('admin.types.create') }}">Aggiungi tipo di progetto </a>
                             </li>
                         </ul>
 
@@ -71,7 +79,7 @@
                     </div>
                 </nav>
 
-                <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 bg-dark">
                     @yield('content')
                 </main>
             </div>

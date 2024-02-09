@@ -42,7 +42,7 @@
                 <label for="descrizione" class="form-label">Descrizione Progetto</label>
                 <textarea name="description" id="descrizione" cols="30" rows="5" class="form-control">{{ old('description') }}</textarea>
             </div>
-            <button type="submit" class="btn btn-primary ">Submit</button>
+            <button type="submit" class="btn btn-primary">Invia</button>
         </form>
     </div>
 @endsection
