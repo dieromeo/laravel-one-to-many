@@ -35,6 +35,7 @@ class UpdateProjectRequest extends FormRequest
             'screen' => 'nullable',
             'collaborators' => 'nullable|max:100|min:2',
             'used_languages' => 'nullable|max:100|min:2',
+            'type_id' => 'nullable|exists:types,id'
         ];
     }
 

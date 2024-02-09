@@ -28,6 +28,7 @@ class StoreProjectRequest extends FormRequest
             'screen' => 'nullable|image',
             'collaborators' => 'max:100|min:2|nullable',
             'used_languages' => 'max:100|min:2|nullable',
+            'type_id' => 'nullable|exists:types,id'
         ];
     }
 

@@ -27,6 +27,16 @@
                 <input type="text" class="form-control" id="collaborators" name="collaborators"
                     value="{{ old('collaborators', $project->collaborators) }}">
             </div>
+            <div class="mb-3">
+                <label for="type_id" class="form-label">Tipo di progetto</label>
+                <select class="form-select" aria-label="Default select example" name="type_id">
+                    <option selected>Scegli un tipo per il progetto</option>
+                    @foreach ($types as $type)
+                        <option @if (old('type_id', $project->type_id) == $type->id) selected @endif value="{{ $type->id }}">
+                            {{ $type->title }}</option>
+                    @endforeach
+                </select>
+            </div>
             <div class="mb-3 col-9">
                 <label for="used_languages" class="form-label">Linguaggi e Framework</label>
                 <input type="text" class="form-control" id="used_languages" name="used_languages"
